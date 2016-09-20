@@ -1,0 +1,106 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context="com.lko.qserver.shinecitycp.Fragment.LoginFragment">
+
+
+    <ScrollView
+        android:isScrollContainer="false"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+        <LinearLayout
+
+            android:elevation="5dp"
+            android:padding="20dp"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:background="#fff"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+
+                <ImageView
+                    android:layout_gravity="center"
+                    android:src="@mipmap/splash"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:textStyle="bold"
+                android:typeface="monospace"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:text="SIGN IN"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:imeOptions="actionNext"
+                android:singleLine="true"
+                android:ems="10"
+                android:background="@drawable/edt_border"
+                android:padding="5dp"
+                android:layout_marginTop="30dp"
+                android:typeface="monospace"
+                android:hint="LOGIN ID"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:imeOptions="actionDone"
+                android:singleLine="true"
+                android:ems="10"
+                android:background="@drawable/edt_border"
+                android:padding="5dp"
+                android:layout_marginTop="30dp"
+                android:typeface="monospace"
+                android:hint="PASSWORD"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:textColor="#71B6F9"
+                    android:gravity="center"
+                    android:typeface="monospace"
+                    android:hint="Remember Me"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+
+            </LinearLayout>
+            <Button
+                android:textColor="#fff"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/button_bg"
+                android:hint="Login"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+
+
+
+
+</LinearLayout>
+</ScrollView>
+    </LinearLayout>

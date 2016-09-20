@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <color name="black">#000</color>
+    <color name="orange">#FA0</color>
+    <color name="white">#FFF</color>
+
+    <color name="sky_orange">#FFC733</color>
+    <color name="dark_orange">#FF7A33</color>
+    <color name="lite_orange">#FFE633</color>
+    <color name="sky_blue">#71B6F9</color>
+    <color name="dark_blue">#222222</color>
+    <color name="lite_dark_blue">#004F81</color>
+
+    <color name="colorPrimaryDark">#1976D2</color>
+    colorPrimaryDark"
+
+
+
+</resources>
