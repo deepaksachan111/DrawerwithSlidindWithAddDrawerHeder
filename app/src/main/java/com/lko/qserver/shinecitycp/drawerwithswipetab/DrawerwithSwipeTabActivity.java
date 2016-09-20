@@ -1,5 +1,6 @@
 package com.lko.qserver.shinecitycp.drawerwithswipetab;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
@@ -7,12 +8,15 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.lko.qserver.shinecitycp.R;
+
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class DrawerwithSwipeTabActivity extends AppCompatActivity {
     DrawerLayout mDrawerLayout;
@@ -20,12 +24,20 @@ public class DrawerwithSwipeTabActivity extends AppCompatActivity {
     FragmentManager mFragmentManager;
     FragmentTransaction mFragmentTransaction;
 
+
     @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+
+    }@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drawerwithswipetab);
+
+      //  FontsOverride.setDefaultFont(this, "MONOSPACE", "Pacifico.ttf");
+
         android.support.v7.widget.Toolbar toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle(Html.fromHtml("<small>YOUR TITLE</small>"));
+      //  toolbar.setTitle(Html.fromHtml("<small>YOUR TITLE</small>"));
         /**
          *Setup the DrawerLayout and NavigationView
          */
@@ -46,6 +58,13 @@ public class DrawerwithSwipeTabActivity extends AppCompatActivity {
          */
         View nav_header = LayoutInflater.from(this).inflate(R.layout.nav_header, null);
               mNavigationView.addHeaderView(nav_header);
+        TextView user = (TextView)nav_header.findViewById(R.id.username);
+        user.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(),"Welcome User",Toast.LENGTH_LONG).show();
+            }
+        });
              mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
              @Override
              public boolean onNavigationItemSelected(MenuItem menuItem) {

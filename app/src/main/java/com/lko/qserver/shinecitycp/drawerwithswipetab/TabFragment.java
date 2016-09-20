@@ -1,5 +1,7 @@
 package com.lko.qserver.shinecitycp.drawerwithswipetab;
 
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -7,9 +9,11 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.lko.qserver.shinecitycp.Fragment.LoginFragment;
 import com.lko.qserver.shinecitycp.R;
@@ -22,6 +26,7 @@ public class TabFragment extends Fragment {
     public static TabLayout tabLayout;
     public static ViewPager viewPager;
     public static int int_items = 3 ;
+    MyAdapter myAdapter;
 
     @Nullable
     @Override
@@ -33,10 +38,11 @@ public class TabFragment extends Fragment {
             tabLayout = (TabLayout) x.findViewById(R.id.tabs);
             viewPager = (ViewPager) x.findViewById(R.id.viewpager);
 
+        myAdapter =new MyAdapter(getChildFragmentManager());
         /**
          *Set an Apater for the View Pager
          */
-        viewPager.setAdapter(new MyAdapter(getChildFragmentManager()));
+        viewPager.setAdapter(myAdapter);
 
         /**
          * Now , this is a workaround ,
@@ -48,8 +54,20 @@ public class TabFragment extends Fragment {
             @Override
             public void run() {
                     tabLayout.setupWithViewPager(viewPager);
+
+                Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "Pacifico.ttf");
+                for (int i = 0; i < tabLayout.getTabCount(); i++) {
+                    TextView tv = new TextView(getActivity());
+                   tv.setGravity(Gravity.CENTER );
+                    tv.setTextColor(Color.WHITE);
+                    tv.setText(myAdapter.getPageTitle(i));
+                    tv.setTypeface(tf);
+                    tabLayout.getTabAt(i).setCustomView(tv);
+                }
                    }
         });
+
+
 
         return x;
 

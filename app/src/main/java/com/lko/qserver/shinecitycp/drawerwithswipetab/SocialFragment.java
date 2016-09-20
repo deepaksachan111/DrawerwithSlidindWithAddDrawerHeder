@@ -17,7 +17,9 @@ public class SocialFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+      //  FontsOverride.setDefaultFont(getActivity(), "MONOSPACE", "Pacifico.ttf");
         return inflater.inflate(R.layout.social_layout,null);
+
     }
 
 
