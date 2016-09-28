@@ -1,7 +1,5 @@
 package com.lko.qserver.shinecitycp.drawerwithswipetab;
 
-import android.graphics.Color;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -9,10 +7,11 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.lko.qserver.shinecitycp.Fragment.LoginFragment;
@@ -27,6 +26,12 @@ public class TabFragment extends Fragment {
     public static ViewPager viewPager;
     public static int int_items = 3 ;
     MyAdapter myAdapter;
+
+    private int[] tabIcons = {
+            R.mipmap.home,
+            R.mipmap.key, R.mipmap.ic_tab_call
+
+    };
 
     @Nullable
     @Override
@@ -50,7 +55,7 @@ public class TabFragment extends Fragment {
          * Maybe a Support Library Bug .
          */
 
-        tabLayout.post(new Runnable() {
+    /*    tabLayout.post(new Runnable() {
             @Override
             public void run() {
                     tabLayout.setupWithViewPager(viewPager);
@@ -65,10 +70,25 @@ public class TabFragment extends Fragment {
                     tabLayout.getTabAt(i).setCustomView(tv);
                 }
                    }
-        });
+        });*/
+//...........................................................................
+       // TabLayout tabLayout = (TabLayout)x. findViewById(R.id.tablayout);
+        tabLayout.setupWithViewPager(viewPager);
 
 
+        for (int i = 0; i < tabLayout.getTabCount(); i++) {
+            TabLayout.Tab tab = tabLayout.getTabAt(i);
+            RelativeLayout relativeLayout = (RelativeLayout)
+                    LayoutInflater.from(getActivity()).inflate(R.layout.tabtittle_layout, tabLayout, false);
 
+            TextView tabTextView = (TextView) relativeLayout.findViewById(R.id.tab_title);
+            ImageView imageView = (ImageView) relativeLayout.findViewById(R.id.iv_tab);
+
+            // tabTextView.setText(tab.getText());
+            //imageView.setImageResource(tabIcons[i]);
+            tab.setCustomView(relativeLayout);
+        }
+//...........................................................................
         return x;
 
     }
