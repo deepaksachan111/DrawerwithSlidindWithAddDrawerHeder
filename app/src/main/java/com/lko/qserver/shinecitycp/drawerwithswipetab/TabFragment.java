@@ -28,8 +28,8 @@ public class TabFragment extends Fragment {
     MyAdapter myAdapter;
 
     private int[] tabIcons = {
-            R.mipmap.home,
-            R.mipmap.key, R.mipmap.ic_tab_call
+            R.drawable.ic_tab_home,
+            R.drawable.ic_tab_contact, R.drawable.ic_tab_about
 
     };
 
@@ -84,8 +84,8 @@ public class TabFragment extends Fragment {
             TextView tabTextView = (TextView) relativeLayout.findViewById(R.id.tab_title);
             ImageView imageView = (ImageView) relativeLayout.findViewById(R.id.iv_tab);
 
-            // tabTextView.setText(tab.getText());
-            //imageView.setImageResource(tabIcons[i]);
+            tabTextView.setText(tab.getText());
+            imageView.setImageResource(tabIcons[i]);
             tab.setCustomView(relativeLayout);
         }
 //...........................................................................
